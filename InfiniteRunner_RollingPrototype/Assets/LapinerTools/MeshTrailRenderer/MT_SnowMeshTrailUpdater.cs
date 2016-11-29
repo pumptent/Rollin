@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using MT_MeshTrail;
 
 namespace MT_MeshTrail
 {

@@ -3,6 +3,7 @@
 using UnityEngine.Rendering;
 #endif
 using System.Collections;
+using MT_MeshTrail;
 
 namespace MT_MeshTrail
 {
