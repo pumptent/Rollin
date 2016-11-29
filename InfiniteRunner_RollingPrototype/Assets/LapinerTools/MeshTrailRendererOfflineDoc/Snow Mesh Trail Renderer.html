@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en-gb" dir="ltr" >
+<head>
+</head>
+<body class="mesh-trail">
+<a href="http://forum.unity3d.com/threads/snow-mesh-trail-renderer-feedback-support.305930/">Unity Forum (ask for support if you have problems!)</a>
+<br />
+<a href="https://www.assetstore.unity3d.com/#!/content/31509"><big><b><span>Unity Asset Store</span></b></big></a>
+<br />
+<br />
+Use the Snow Mesh Trail Renderer to draw a 3d mesh trail in your winter environment. Exclude obstacles (e.g. a slide box in a snow park) that need no trail by using a layer mask or by rendering the trail on terrain only. Additionally, the trail will be drawn only on the ground, it will stop drawing while in air. You can also use this asset in other environments than snow, replace the textures and draw your trail in the desert!
+<br />
+Features:<br />
+<ul>
+<li type="disc"><strong>get started with diverse trail prefabs</strong></li>
+<li type="disc"><strong>demo scene showing different setups</strong></li>
+<li type="disc"><strong>3d mesh trail</strong></li>
+<li type="disc"><strong>diverse snow shaders</strong></li>
+<li type="disc"><strong>draws trail only on the ground (off in air)</strong></li>
+<li type="disc"><strong>layer masking objects</strong></li>
+<li type="disc"><strong>let it draw on terrain only</strong></li>
+<li type="disc"><strong>mesh normals for lighted shaders</strong></li>
+<li type="disc"><strong>mesh UVs for textured shaders</strong></li>
+</ul>
+<em>Unity Asset Store version v2.00</em><br />
+<p><strong><big>Documentation:</big></strong></p>
+<p><b><u>MT_MeshTrailRenderer</u></b></p>
+The <em>MT_MeshTrailRenderer</em> is the heart of this package. This script allows you to draw a 3d trail, which is independent of the camera position and angle (in contrast to the Unity built-in <em>TrailRenderer</em>).
+<table>
+  <tr>
+    <td class="my_table">
+<img src="MT_MeshTrailRendererInspector_v2_00.png" border="0" alt="MeshTrailRenderer Inspector" title="MeshTrailRenderer Inspector" />
+    </td>
+    <td width="10">
+    </td>
+    <td class="my_table">
+<b>Material</b>: material of the generated trail mesh.
+<br />
+<br />
+<b>Cast Shadows</b>: cast shadows setting of the generated trail mesh.
+<br />
+<br />
+<b>Receive Shadows</b>: receive shadows setting of the generated trail mesh.
+<br />
+<br />
+<b>TRAIL_MESH_VERTICES</b>: this Vector3 array contains the vertices of the edge between trail mesh steps. Vertices are defined in local coordinates of the game object that has this script attached.
+<br />
+<br />
+<b>Is UVs Needed</b>: if true, then the TRAIL_MESH_UVS must be provided. If false, then the generated trail mesh will have no UV coordinates (use only with custom shaders that need no UV).
+<br />
+<br />
+<b>TRAIL_MESH_UVS</b>: this Vector2 array contains the UV coordinates for each vertex in TRAIL_MESH_VERTICES. This array must have the same length as the vertex array.
+<br />
+<br />
+<b>UV Spread</b>: this vector is applied to the UV coordinates of each trail edge. The applied vector is multiplied with the trail length at the edge.
+    </td>
+  </tr>
+</table>
+<b>Is Normals Needed</b>: if true, then the TRAIL_MESH_NORMALS must be provided. If false, then the generated trail mesh will have no normals (use only with custom shaders that need no normals).
+<br />
+<br />
+<b>TRAIL_MESH_NORMALS</b>: this Vector3 array contains the normals for each vertex in TRAIL_MESH_VERTICES. This array must have the same length as the vertex array. Normals are defined in local coordinates of the game object that has this script attached.
+<br />
+<br />
+<b>TRAIL_MESH_TRIANGLES</b>: this int array contains the triangle indices built between the current vertex array and the vertex array of the last edge. In other words, this array describes how single edges of the trail mesh are connected. The index values can/must be negative. For example, if you want to build a triangle between the first two vertices of the new trail edge and the last vertex of the preceding edge you would use these indices: [0, 1, -1].
+<b>RECALC_BOUNDS_PERIOD_ELEMENTS</b>: number of trail edges added before the mesh bounds are recalculated. Use a low value if your trail disappears randomly (when camera moves). Use a high value if you are looking for faster computation. On desktop platforms you can set this value to '1' if you want (the performance implications will not be noticeable). However, on mobile platforms you should find a balanced value. Also take into account that the performance implications grow with higher MAX_VERTEX_COUNT.
+<br />
+<br />
+<b>RECALC_BOUNDS_PERIOD_ELEMENTS</b>: number of trail edges added before the mesh bounds are recalculated. Use a low value if your trail disappears randomly (when camera moves). Use a high value if you are looking for faster computation. On desktop platforms you can set this value to '1' if you want (the performance implications will not be noticeable). However, on mobile platforms you should find a balanced value. Also take into account that the performance implications grow with higher MAX_VERTEX_COUNT.
+<br />
+<br />
+<b>RECALC_BOUNDS_PERIOD_FRAMES</b>: maximal number of frames before the mesh bounds are recalculated after a change. Use a low value if your trail disappears randomly (when camera moves). Use a high value if you are looking for faster computation. On desktop platforms you can set this value to '1' if you want (the performance implications will not be noticeable). However, on mobile platforms you should find a balanced value. Also take into account that the performance implications grow with higher MAX_VERTEX_COUNT.
+<br />
+<br />
+<b>MAX_VERTEX_COUNT</b>: the vertex limit for this trail. The oldest vertices will be overwritten once the vertex limit is reached.
+<br />
+<br />
+<b>MIN_DISTANCE</b>: minimal distance between two edges of the trail.
+<br />
+<br />
+<b>IsJerkFree</b>: when active: an edge will be added to the mesh even if the MIN_DISTANCE between this game object and the last trail edge is not reached. This new intermediate edge will be updated every frame and moved with the game object until MIN_DISTANCE is exceeded. Then a static edge will be added and a new intermediate edge will be created. You can safely use this feature on desktop platforms. If your game runs on mobile with many trails and you need to improve performance, then you could disable this feature and hide the jerking edge generation behind a particle system.
+<br />
+<br />
+<b>IsRotateTowardsMovementDirection</b>: if true, then this game object will be rotated towards move direction in LateUpdate. If this object has a parent, then the up vector will be rotated to match the up vector of the parent as good as possible. If there is no parent, then the up vector is not defined and can become random over time.
+<br />
+<br />
+<b>IsDrawing</b>: if true, then the trail will be drawn. If false, then there will be no trail.
+<br />
+<br />
+<b>Scale</b>: vertex scale that will be applied to the TRAIL_MESH_VERTICES array. Often the trails in a game differ only in width or height. For example, if you have small and big snowboards drawing a trail into snow. You can use this scale property to save time and avoid redefining the vertex array unnecessary.
+<br />
+<br />
+<b>LastDrawLocation</b>: last edge position of the currently drawn connected trail. If there is no trail drawn than this property has the value of INIT_LAST_DRAW_LOCATION. This property is not accessible via the inspector, but could be useful in scripts.
+<br />
+<br />
+<b>OverrideNormalRotation</b>: sometimes the vertex edge orientation and normal orientation need to be different. Use this function to pass a Quaternion that defines the normal orientation.
+<br />
+<br />
+<br />
+<br />
+
+
+
+
+<p><b><u>MT_SnowMeshTrailUpdater</u></b></p>
+Finally, the <em>MT_SnowMeshTrailUpdater</em> is the script that uses the <em>MT_MeshTrailRenderer</em> to draw a snow trail on the Unity Terrain. Additionally, this script will instantiate the material of the mesh trail renderer and change its render queue order to prevent crossing trails from z-fighting. All trails managed by <em>MT_SnowMeshTrailUpdater</em> scripts will have a defined rendering order. For example, the first created trail will always be behind the second created trail.
+<table>
+  <tr>
+    <td class="my_table">
+<img src="MT_SnowMeshTrailUpdaterInspector_v2_00.png" border="0" alt="MeshTrailRenderer Inspector" title="MeshTrailRenderer Inspector" />
+    </td>
+    <td width="10">
+    </td>
+    <td class="my_table">
+<b>IS_DRAWING</b>: set this to false when you need to disable the trail. For example, if your player is in air and you know that there should be no trail, then you can hide the trail with "IsDrawing = false;".
+<br />
+<br />
+<b>UPDATE_MODE</b>: depending on your code it might have a difference when to update the trails state. For example, if you use rigidbodies you should select the ON_FIXED_UPDATE mode to let the script work in the FixedUpdate function. This way the result will be more accurate. Then again if you move your objects only in the Update function and do not use rigidbodies then you need to let the calculations happen in the Update loop (ONCE_PER_FRAME mode). Also, ONCE_PER_FRAME is usually faster. Therefore, if you seek for optimization you can use this mode and sacrifice accuracy when used with rigidbodies (useful only on mobile, since the performance implications are very small).
+    </td>
+  </tr>
+</table>
+<b>RAYCAST_MODE</b>: use one of the following raycast modes.<br />
+WORLD_DOWN_AXIS: raycasts will go down on the world Y axis.<br />
+LOCAL_DOWN_AXIS: raycasts will go down on the object's local Y axis.<br />
+CUSTOM_AXIS: the raycast axis is defined in the RAYCAST_CUSTOM_AXIS property. It can be changed on runtime (e.g. for a planet scenario).
+<br />
+<br />
+<b>RAYCAST_CUSTOM_AXIS</b>: if RAYCAST_MODE is set to CUSTOM_AXIS, then raycasts will follow the given vector. This property can be changed on runtime (e.g. for a planet scenario).
+<br />
+<br />
+<b>IS_POSITION_BY_RAYCAST</b>: if true, then the trail will snap to the raycasted object below the original trail position. This way the trail will look more accurate with less bumps in it.
+<br />
+<br />
+<b>IS_ROTATION_BY_RAYCAST</b>: if true, then the normal orientation of the trail will be adapted to the raycasted object below the trail object. For example, if you have a sledge that is slipping on the side, then you don't want the trail to be on the side too. It is more likely that you will want to draw the trail directly on the terrain with its normal pointing up and not to the side.
+<br />
+<br />
+<b>IS_ROTATE_TOWARDS_MOVEMENT_DIRECTION</b>: if true, then this game object will be rotated towards move direction in the update function of the selected update mode. The up vector will be rotated to match the up vector of the parent as good as possible.
+<br />
+<br />
+<b>SNOW_LAYERS</b>: only this layers will be used for raycasts. A raycast is made in every update loop (depending on update mode) to determine if the object is on the ground or in air.
+<br />
+<br />
+<b>MAX_DISTANCE_TO_SNOW</b>: this is the maximal distance that raycasts can have. A raycast is made in every update loop (depending on update mode) to determine if the object is on the ground or in air. If there is no object from the SNOW_LAYERS within this given distance, then the object is considered to be in air.
+<br />
+<br />
+<b>IsDrawing</b>: this is a script property, which is not accessible in the inspector, but might be useful in your scripts.
+<br />
+<br />
+<br />
+<br />
+
+
+
+
+<p><b><u>MT_SnowTrailShader</u> & <u>MT_SnowTrailShaderTextured</u></b></p>
+The <em>MT_SnowTrailShader</em> and the <em>MT_SnowTrailShaderTextured</em> will draw a trail visible only on Unity Terrain. The shaders draw with an offset, so that the actual trail can be drawn under the terrain's surface. Check the lines "Offset -1, -1" and "v.vertex.xyz += normalize(viewDir)*min(viewDirLength*0.75, 0.75);" for the offset values (just in case that you will need to put you trail further into the ground). Use <em>MT_SnowTrailShader</em> if you want to have a colored trail without texture and <em>MT_SnowTrailShaderTextured</em> if you want to add more details with a texture.
+<br />
+<br />
+<br />
+<br />
+
+
+
+
+<p><b><u>MT_SnowTrailShaderGeometry</u> & <u>MT_SnowTrailShaderGeometryTextured</u></b></p>
+In contrast to the shaders above, the geometry shaders draw on everything (Unity Terrain and other objects). Use the "Z Buffer Offset" material property to put the trail deeper into the ground.
+<br />
+<br />
+<br />
+<br />
+
+
+
+
+<p><strong><big>Troubleshooting</big></strong></p>
+<b><font color="#CC0000">ERROR:</font></b><br />
+Code does not compile. With errors like:<br />
+"error CS0246: The type or namespace name `MT_MeshTrailRenderer' could not be found. Are you missing a using directive or an assembly reference?"<br />
+<b><font color="#00AA00">SOLUTION:</font></b><br />
+To avoid conflicts with your code the tool has its own namespace. Add the namespace by placing this line at the top of your code file:<br />
+"using MT_MeshTrail;"<br />
+</body>
+</html>

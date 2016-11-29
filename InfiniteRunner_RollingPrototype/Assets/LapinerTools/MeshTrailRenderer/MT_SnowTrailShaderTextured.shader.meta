@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 12be1798a72ae2e43ab30e5a1a7d38a0
+labels:
+- snow
+- snowboard
+- ski
+- trail
+- renderer
+- trailrenderer
+- mesh
+- meshtrail
+- shader
+- snowshader
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

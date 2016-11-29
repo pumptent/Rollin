@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400002}
+  - 114: {fileID: 11400000}
+  m_Layer: 2
+  m_Name: Colored_Round_Trail_For_Balls
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89603892c3ce3d64c9ade609431dbe3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IS_DRAWING: 1
+  UPDATE_MODE: 1
+  RAYCAST_MODE: 0
+  RAYCAST_CUSTOM_AXIS: {x: 0, y: -1, z: 0}
+  IS_POSITION_BY_RAYCAST: 0
+  IS_ROTATION_BY_RAYCAST: 1
+  IS_ROTATE_TOWARDS_MOVEMENT_DIRECTION: 1
+  SNOW_LAYERS: {}
+  MAX_DISTANCE_TO_SNOW: 0.675
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55fbd3ed210735649ba2578c53e0f39e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_material: {fileID: 2100000, guid: 44ce3351ba0a11543bcad876a241de98, type: 2}
+  m_castShadows: 0
+  m_receiveShadows: 1
+  TRAIL_MESH_VERTICES:
+  - {x: -0.75, y: -1.4, z: 0}
+  - {x: -0.3, y: -1.6, z: 0}
+  - {x: 0.3, y: -1.6, z: 0}
+  - {x: 0.75, y: -1.4, z: 0}
+  m_isUVsNeeded: 0
+  TRAIL_MESH_UVS:
+  - {x: 0, y: 0}
+  - {x: 0.25, y: 0}
+  - {x: 0.5, y: 0}
+  - {x: 1, y: 0}
+  m_UVSpread: {x: 0, y: 1}
+  m_isNormalsNeeded: 1
+  TRAIL_MESH_NORMALS:
+  - {x: 0.7071, y: 0.7071, z: 0}
+  - {x: 0.3827, y: 0.9239, z: 0}
+  - {x: -0.3827, y: 0.9239, z: 0}
+  - {x: -0.7071, y: 0.7071, z: 0}
+  TRAIL_MESH_TRIANGLES: 00000000fdfffffffcffffff01000000fdffffff0000000001000000fefffffffdffffff02000000feffffff0100000002000000fffffffffeffffff03000000ffffffff02000000
+  RECALC_BOUNDS_PERIOD_ELEMENTS: 4
+  RECALC_BOUNDS_PERIOD_FRAMES: 10
+  MAX_VERTEX_COUNT: 2000
+  MIN_DISTANCE: 0.3
+  m_isJerkFree: 1
+  m_isRotateTowardsMovementDirection: 1
+  m_isDrawing: 1
+  m_scale: {x: 0.3, y: 0.3, z: 1}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100000}
+  m_IsPrefabParent: 1
