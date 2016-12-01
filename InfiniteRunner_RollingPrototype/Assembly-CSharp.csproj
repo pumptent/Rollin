@@ -46,6 +46,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\BallDamage.cs" />
+     <Compile Include="Assets\FollowBall.cs" />
+     <Compile Include="Assets\FollowBall2.cs" />
      <Compile Include="Assets\LapinerTools\MeshTrailRenderer\Example\MT_Example.cs" />
      <Compile Include="Assets\LapinerTools\MeshTrailRenderer\Example\MT_ExamplePlanetGravity.cs" />
      <Compile Include="Assets\LapinerTools\MeshTrailRenderer\MT_MeshTrailRenderer.cs" />

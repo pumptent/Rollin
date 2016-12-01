@@ -4,17 +4,22 @@ using System.Collections;
 
 public class ParticleOnCollision : MonoBehaviour{
 
-	public ParticleSystem _psystem;
+	public GameObject hit;
+	public GameObject playerHit;
 
-	void Awake() {
-		_psystem = GetComponent<ParticleSystem> ();
+	void OnCollisionEnter (Collider other)
+	{
+		if (other.tag == "Boundary") {
+			return;
+		}
+		Instantiate (hit, transform.position, transform.rotation);
+		if (other.tag == "Player") {
+			Instantiate (playerHit, other.transform.position, other.transform.rotation);
+		}
+
+
 	}
 
-	void OnTriggerEnter (Collider col)  {
 
-
-		_psystem.Play();
-
-	}
 
 }
