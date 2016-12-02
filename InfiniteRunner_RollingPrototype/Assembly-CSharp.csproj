@@ -48,6 +48,7 @@
      <Compile Include="Assets\BallDamage.cs" />
      <Compile Include="Assets\FollowBall.cs" />
      <Compile Include="Assets\FollowBall2.cs" />
+     <Compile Include="Assets\IndieEffects.cs" />
      <Compile Include="Assets\LapinerTools\MeshTrailRenderer\Example\MT_Example.cs" />
      <Compile Include="Assets\LapinerTools\MeshTrailRenderer\Example\MT_ExamplePlanetGravity.cs" />
      <Compile Include="Assets\LapinerTools\MeshTrailRenderer\MT_MeshTrailRenderer.cs" />
@@ -62,6 +63,7 @@
      <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
      <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
      <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
+     <Compile Include="Assets\SimpleParticlePack\Scripts\ParticleTester.cs" />
      <Compile Include="Assets\TriangleExplosion.cs" />
      <None Include="Assets\TaichiCharacterPack\Shaders\toon_cutoff.shader" />
      <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
@@ -116,6 +118,7 @@
      <None Include="Assets\TaichiCharacterPack\TwinViewer\Resources\Taichi\TwinViewer Settings\F05\animation_list_all.txt" />
      <None Include="Assets\LapinerTools\MeshTrailRenderer\MT_SnowTrailShaderGeometry.shader" />
      <None Include="Assets\Standard Assets\Effects\ToonShading\Shaders\ToonBasicOutline.shader" />
+     <None Include="Assets\RadialBlur.shader" />
      <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
      <None Include="Assets\TaichiCharacterPack\TwinViewer\Resources\Taichi\TwinViewer Settings\F02\fbx_ctrl.xml" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfField34.shader" />
